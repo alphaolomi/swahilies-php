@@ -1,0 +1,50 @@
+{
+    "name": "alphaolomi/swahilies-php",
+    "description": "Swahilies for PHP",
+    "keywords": [
+        "alphaolomi",
+        "swahilies pay",
+        "swahilies-php"
+    ],
+    "homepage": "https://github.com/alphaolomi/swahilies-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alpha Olomi",
+            "email": "alphaolomi@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "guzzlehttp/guzzle": "^7.5"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.2",
+        "pestphp/pest": "^1.20"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alphaolomi\\Swahilies\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Alphaolomi\\Swahilies\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true,
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
