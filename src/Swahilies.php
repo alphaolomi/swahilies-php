@@ -15,6 +15,7 @@ class Swahilies
         $this->httpClient = $httpClient ?: new Client($options);
         $this->options = $options;
     }
+
     public static function create(array $options = [])
     {
         return new Swahilies($options, new Client());
@@ -22,12 +23,11 @@ class Swahilies
 
     public function payaments()
     {
-        return new Services\Payments( $this->httpClient, $this->options );
+        return new Services\Payments($this->httpClient, $this->options);
     }
-
 
     public function webhooks()
     {
-        return new Services\Webhooks( $this->httpClient, $this->options );
+        return new Services\Webhooks($this->httpClient, $this->options);
     }
 }

@@ -8,8 +8,9 @@ class Helpers
     {
         $phone = preg_replace('/[^0-9]/', '', $phone);
         if (strlen($phone) == 10) {
-            $phone = '255' . $phone;
+            $phone = '255'.$phone;
         }
+
         return $phone;
     }
 }
