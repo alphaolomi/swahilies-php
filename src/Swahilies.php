@@ -8,17 +8,25 @@ use GuzzleHttp\Client;
 
 class Swahilies
 {
+    private $baseUrl = "https://swahiliesapi.invict.site/Api";
+
+    //
     public function __construct(
         $options = [],
         $httpClient = null
     ) {
-        $this->httpClient = $httpClient ?: new Client($options);
         $this->options = $options;
+        $this->httpClient = $httpClient ?: new Client([
+            'base_uri' => $this->baseUrl,
+            'headers' => [
+                'Accept'     => 'application/json',
+            ]
+        ]);
     }
 
     public static function create(array $options = [])
     {
-        return new Swahilies($options, new Client());
+        return new Swahilies($options);
     }
 
     public function payaments()

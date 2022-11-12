@@ -21,7 +21,7 @@ $swahilies = Swahilies::create([
     'apiKey' => 'csdheruvhhjdhvjadmvjehrve',
     'username' => 'Company name',
     'username' => 'Business name',
-    'is_live' => false, // ie. sandbox mode
+    'isLive' => false, // ie. sandbox mode
 ]);
 
 $response = $swahilies->payments()->request([
