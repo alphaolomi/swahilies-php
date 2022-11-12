@@ -8,7 +8,7 @@ use GuzzleHttp\Client;
 
 class Swahilies
 {
-    private $baseUrl = "https://swahiliesapi.invict.site/Api";
+    private $baseUrl = 'https://swahiliesapi.invict.site/Api';
 
     //
     public function __construct(
@@ -19,8 +19,8 @@ class Swahilies
         $this->httpClient = $httpClient ?: new Client([
             'base_uri' => $this->baseUrl,
             'headers' => [
-                'Accept'     => 'application/json',
-            ]
+                'Accept' => 'application/json',
+            ],
         ]);
     }
 

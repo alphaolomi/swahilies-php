@@ -14,37 +14,39 @@ class Payments
 
     public function all()
     {
-        $response = $this->httpClient->post("", [
+        $response = $this->httpClient->post('', [
             'json' => [
-                "api"  => 170,
-                "code" => 103,
-                "data" => ["api_key" => $this->options['apiKey']]
-            ]
+                'api' => 170,
+                'code' => 103,
+                'data' => ['api_key' => $this->options['apiKey']],
+            ],
         ]);
+
         return json_decode((string) $response->getBody(), true);
     }
 
     public function create(array $data)
     {
         $payload = [
-            "api" => 170,
-            "code" => 101,
-            "data" => [
-                "api_key" => $this->options['apiKey'],
-                "order_id" => $this->generateRandomString(10),
-                "amount" => $data['amount'],
-                "phone_number" => $data['phoneNumber'],
-                "success_url" => $data['successUrl'],
-                "cancel_url" => $data['cancelUrl'],
-                "webhook_url" => $data['webhookUrl'],
-                "metadata" => $data['metadata'] ?? [],
-                "username" => $this->options['username'] ?: $data['username'],
-                "is_live" => $this->options['isLive'],
-            ]
+            'api' => 170,
+            'code' => 101,
+            'data' => [
+                'api_key' => $this->options['apiKey'],
+                'order_id' => $this->generateRandomString(10),
+                'amount' => $data['amount'],
+                'phone_number' => $data['phoneNumber'],
+                'success_url' => $data['successUrl'],
+                'cancel_url' => $data['cancelUrl'],
+                'webhook_url' => $data['webhookUrl'],
+                'metadata' => $data['metadata'] ?? [],
+                'username' => $this->options['username'] ?: $data['username'],
+                'is_live' => $this->options['isLive'],
+            ],
         ];
-        $response = $this->httpClient->post("", [
-            'json' => $payload
+        $response = $this->httpClient->post('', [
+            'json' => $payload,
         ]);
+
         return json_decode((string) $response->getBody(), true);
     }
 
@@ -56,17 +58,17 @@ class Payments
     public function get(string $id)
     {
         $data = [
-            "api_key" => $this->options['apiKey'],
-            "order_id" => $id
+            'api_key' => $this->options['apiKey'],
+            'order_id' => $id,
         ];
 
         $payload = [
-            "api"  => 170,
-            "code" => 103,
-            "data" => $data
+            'api' => 170,
+            'code' => 103,
+            'data' => $data,
         ];
-        $response = $this->httpClient->post("", [
-            'json' => $payload
+        $response = $this->httpClient->post('', [
+            'json' => $payload,
         ]);
 
         return json_decode((string) $response->getBody(), true);
@@ -80,6 +82,7 @@ class Payments
         for ($i = 0; $i < $length; $i++) {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
+
         return $randomString;
     }
 }

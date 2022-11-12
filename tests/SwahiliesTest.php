@@ -13,7 +13,6 @@ it('can instantiate Swahilies using new', function () {
     expect($swahilies)->toBeInstanceOf(Swahilies::class);
 });
 
-
 it('can instantiate Swahilies using crearte', function () {
     $swahilies = Swahilies::create([
         'apiKey' => 'csdheruvhhjdhvjadmvjehrve',
@@ -24,8 +23,6 @@ it('can instantiate Swahilies using crearte', function () {
     expect($swahilies)->toBeTruthy();
     expect($swahilies)->toBeInstanceOf(Swahilies::class);
 });
-
-
 
 // it('can make payments', function () {
 //     $swahilies = Swahilies::create([
@@ -47,7 +44,6 @@ it('can instantiate Swahilies using crearte', function () {
 //     ]))->dd();
 // });
 
-
 // it('can make payments', function () {
 //     $swahilies = Swahilies::create([
 //         'apiKey' => "",
@@ -58,9 +54,6 @@ it('can instantiate Swahilies using crearte', function () {
 
 //     expect($swahilies->payaments()->all())->dd();
 // });
-
-
-
 
 // it('can make payments', function () {
 //     $swahilies = Swahilies::create([
