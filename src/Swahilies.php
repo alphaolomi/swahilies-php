@@ -6,27 +6,38 @@ namespace Alphaolomi\Swahilies;
 
 use GuzzleHttp\Client;
 
+/**
+ * Swahilies
+ * @version 1.0
+ * @author Alpha Olomi
+ */
 class Swahilies
 {
-    private $baseUrl = 'https://swahiliesapi.invict.site/Api';
+    const BASE_API_URL = "https://swahiliesapi.invict.site/Api";
+    private $httpClient;
 
-    //
     public function __construct(
-        $options = [],
+        array $options = [],
         $httpClient = null
     ) {
         $this->options = $options;
         $this->httpClient = $httpClient ?: new Client([
-            'base_uri' => $this->baseUrl,
+            'base_uri' => self::BASE_API_URL,
             'headers' => [
                 'Accept' => 'application/json',
             ],
         ]);
     }
 
-    public static function create(array $options = [])
+    public static function create(array $options = [], array $httpOptions = [])
     {
-        return new Swahilies($options);
+        $_httpClient = new Client(array_merge([
+            'base_uri' => self::BASE_API_URL,
+            'headers' => [
+                'Accept'     => 'application/json',
+            ]
+        ], $httpOptions));
+        return new Swahilies($options, $_httpClient);
     }
 
     public function payaments()

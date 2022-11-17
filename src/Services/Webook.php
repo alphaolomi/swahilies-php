@@ -2,10 +2,20 @@
 
 namespace Alphaolomi\Swahilies\Services;
 
+/**
+ * @version 1.0
+ * @author Alpha Olomi
+ */
 class Webhooks
 {
-    public function __construct($options = [])
+    private $httpClient;
+    private $options;
+
+    public function __construct($httpClient = null, $options)
     {
+        throw new \Exception(sprintf('%s ', get_class($this), 'is still under contruction.'));
+
+        $this->httpClient = $httpClient;
         $this->options = $options;
     }
 
@@ -18,7 +28,7 @@ class Webhooks
         ];
         $toDigest = '';
         foreach ($data as $key => $value) {
-            $toDigest .= '&' + $key + '=' + $fordigest[$key];
+            $toDigest .= "&" + $key + "=" + $fordigest[$key];
         }
         $digest = base64_encode(hash_hmac('sha256', $toDigest, $this->options['apiSecret'], true));
 

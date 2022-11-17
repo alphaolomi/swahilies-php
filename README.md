@@ -26,13 +26,13 @@ $swahilies = Swahilies::create([
 
 $response = $swahilies->payments()->request([
     // TZS by default
-    'amount' => 50_000, 
+    'amount' => 50_000,
     // 255 is country code for Tanzania, Only Tanzania is supported for now
-    'phone_number' => "255783262616", 
+    'phone_number' => "255783262616",
     'cancel_url' => "https://yoursite.com/cancel",
     'webhook_url' => "https://yoursite.com/response",
     'success_url' => "https://yoursite.com/success",
-    'metadata' => [], 
+    'metadata' => [],
 ]);
 
 print_r($response);
@@ -52,7 +52,24 @@ $isValid = $swahilies->webhooks()
     ->verify($request->getContent()); // true/false
 ```
 
+## Available APIs
+
+### Payments
+
+-   `all()` - Get all transactions
+-   `create($data)` - Make transaction
+-   `request($data)` alias to `create`
+-   `find($id)` - Get transaction status
+
+### Webhooks
+
+> 🚧 Work in progress
+
+-   `getDisget($data)` - Generate requery body digest
+-   `verify($data)` - Verify request body
+
 ## Testing
+
 Using [PestPHP](https://pestphp.com/)
 
 ```bash
@@ -73,8 +90,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Alpha Olomi](https://github.com/alphaolomi)
-- [All Contributors](../../contributors)
+-   [Alpha Olomi](https://github.com/alphaolomi)
+-   [All Contributors](../../contributors)
 
 ## License
 

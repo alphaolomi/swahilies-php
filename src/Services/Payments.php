@@ -2,13 +2,22 @@
 
 namespace Alphaolomi\Swahilies\Services;
 
-use GuzzleHttp\Client;
+use Alphaolomi\Swahilies\Helpers;
 
+/**
+ * @version 1.0
+ * @author Alpha Olomi
+ */
 class Payments
 {
-    public function __construct(Client $httpClient, $options)
+    private $httpClient;
+    private $options;
+
+    public function __construct($httpClient, $options)
     {
+        /** @var GuzzleHttp\Client; */
         $this->httpClient = $httpClient;
+
         $this->options = $options;
     }
 
@@ -28,20 +37,20 @@ class Payments
     public function create(array $data)
     {
         $payload = [
-            'api' => 170,
-            'code' => 101,
-            'data' => [
-                'api_key' => $this->options['apiKey'],
-                'order_id' => $this->generateRandomString(10),
-                'amount' => $data['amount'],
-                'phone_number' => $data['phoneNumber'],
-                'success_url' => $data['successUrl'],
-                'cancel_url' => $data['cancelUrl'],
-                'webhook_url' => $data['webhookUrl'],
-                'metadata' => $data['metadata'] ?? [],
-                'username' => $this->options['username'] ?: $data['username'],
-                'is_live' => $this->options['isLive'],
-            ],
+            "api" => 170,
+            "code" => 101,
+            "data" => [
+                "api_key" => $this->options['apiKey'],
+                "order_id" => Helpers::generateRandomString(10),
+                "amount" => $data['amount'],
+                "phone_number" => $data['phoneNumber'],
+                "success_url" => $data['successUrl'],
+                "cancel_url" => $data['cancelUrl'],
+                "webhook_url" => $data['webhookUrl'],
+                "metadata" => $data['metadata'] ?? [],
+                "username" => $this->options['username'] ?: $data['username'],
+                "is_live" => $this->options['isLive'],
+            ]
         ];
         $response = $this->httpClient->post('', [
             'json' => $payload,
@@ -55,7 +64,7 @@ class Payments
         return $this->create($data);
     }
 
-    public function get(string $id)
+    public function find(string $id)
     {
         $data = [
             'api_key' => $this->options['apiKey'],
@@ -74,15 +83,4 @@ class Payments
         return json_decode((string) $response->getBody(), true);
     }
 
-    private function generateRandomString($length = 10)
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-
-        return $randomString;
-    }
 }
