@@ -8,12 +8,15 @@ use GuzzleHttp\Client;
 
 /**
  * Swahilies
+ *
  * @version 1.0
+ *
  * @author Alpha Olomi
  */
 class Swahilies
 {
-    const BASE_API_URL = "https://swahiliesapi.invict.site/Api";
+    const BASE_API_URL = 'https://swahiliesapi.invict.site/Api';
+
     private $httpClient;
 
     public function __construct(
@@ -34,9 +37,10 @@ class Swahilies
         $_httpClient = new Client(array_merge([
             'base_uri' => self::BASE_API_URL,
             'headers' => [
-                'Accept'     => 'application/json',
-            ]
+                'Accept' => 'application/json',
+            ],
         ], $httpOptions));
+
         return new Swahilies($options, $_httpClient);
     }
 

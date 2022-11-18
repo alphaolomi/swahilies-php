@@ -6,11 +6,13 @@ use Alphaolomi\Swahilies\Helpers;
 
 /**
  * @version 1.0
+ *
  * @author Alpha Olomi
  */
 class Payments
 {
     private $httpClient;
+
     private $options;
 
     public function __construct($httpClient, $options)
@@ -37,20 +39,20 @@ class Payments
     public function create(array $data)
     {
         $payload = [
-            "api" => 170,
-            "code" => 101,
-            "data" => [
-                "api_key" => $this->options['apiKey'],
-                "order_id" => Helpers::generateRandomString(10),
-                "amount" => $data['amount'],
-                "phone_number" => $data['phoneNumber'],
-                "success_url" => $data['successUrl'],
-                "cancel_url" => $data['cancelUrl'],
-                "webhook_url" => $data['webhookUrl'],
-                "metadata" => $data['metadata'] ?? [],
-                "username" => $this->options['username'] ?: $data['username'],
-                "is_live" => $this->options['isLive'],
-            ]
+            'api' => 170,
+            'code' => 101,
+            'data' => [
+                'api_key' => $this->options['apiKey'],
+                'order_id' => Helpers::generateRandomString(10),
+                'amount' => $data['amount'],
+                'phone_number' => $data['phoneNumber'],
+                'success_url' => $data['successUrl'],
+                'cancel_url' => $data['cancelUrl'],
+                'webhook_url' => $data['webhookUrl'],
+                'metadata' => $data['metadata'] ?? [],
+                'username' => $this->options['username'] ?: $data['username'],
+                'is_live' => $this->options['isLive'],
+            ],
         ];
         $response = $this->httpClient->post('', [
             'json' => $payload,
@@ -82,5 +84,4 @@ class Payments
 
         return json_decode((string) $response->getBody(), true);
     }
-
 }

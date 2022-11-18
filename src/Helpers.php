@@ -4,7 +4,9 @@ namespace Alphaolomi\Swahilies;
 
 /**
  * Helper functions
+ *
  * @version 1.0
+ *
  * @author Alpha Olomi
  */
 class Helpers
@@ -30,6 +32,7 @@ class Helpers
         for ($i = 0; $i < $length; $i++) {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
+
         return $randomString;
     }
 }
