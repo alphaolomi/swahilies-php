@@ -1,10 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
-use GuzzleHttp\Handler\MockHandler;
-use GuzzleHttp\HandlerStack;
 use Alphaolomi\Swahilies\Swahilies;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 
@@ -20,7 +21,6 @@ beforeEach(function () {
     ], $httpClientOptions);
 });
 
-
 it('throws errors exceptions: fixme later', function () {
     $this->mock->reset();
     $clientException = new ClientException(
@@ -34,21 +34,18 @@ it('throws errors exceptions: fixme later', function () {
         // TZS by default
         'amount' => 300,
         // 255 is country code for Tanzania, Only Tanzania is supported for now
-        'phoneNumber' => "255747991498",
-        'cancelUrl' => "https://yoursite.com/cancel",
-        'webhookUrl' => "https://yoursite.com/response",
-        'successUrl' => "https://yoursite.com/success",
+        'phoneNumber' => '255747991498',
+        'cancelUrl' => 'https://yoursite.com/cancel',
+        'webhookUrl' => 'https://yoursite.com/response',
+        'successUrl' => 'https://yoursite.com/success',
         'metadata' => [],
     ]))->dd();
-
 })->throws(ClientException::class);
-
 
 it('use real server', function () {
     $api = getenv('APP_API');
     expect($api)->toBe('swahilies');
 })->skip(fn () => empty(getenv('APP_API')), 'No APP_API provided.');
-
 
 it('can instantiate Swahilies using new', function () {
     $swahilies = new Swahilies([
