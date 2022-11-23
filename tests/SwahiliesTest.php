@@ -13,7 +13,7 @@ it('can instantiate Swahilies using new', function () {
     expect($swahilies)->toBeInstanceOf(Swahilies::class);
 });
 
-it('can instantiate Swahilies using crearte', function () {
+it('can instantiate Swahilies using create', function () {
     $swahilies = Swahilies::create([
         'apiKey' => 'csdheruvhhjdhvjadmvjehrve',
         'username' => 'Company name',
