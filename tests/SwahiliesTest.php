@@ -30,7 +30,7 @@ it('throws errors exceptions: fixme later', function () {
     );
     $this->mock->append($clientException);
 
-    expect($this->swahiliesMock->payaments()->request([
+    expect($this->swahiliesMock->payments()->request([
         // TZS by default
         'amount' => 300,
         // 255 is country code for Tanzania, Only Tanzania is supported for now
@@ -77,7 +77,7 @@ it('can instantiate Swahilies using create', function () {
 //         'isLive' => false, // ie. sandbox mode
 //     ]);
 
-//     expect($swahilies->payaments()->request([
+//     expect($swahilies->payments()->request([
 //         // TZS by default
 //         'amount' => 300,
 //         // 255 is country code for Tanzania, Only Tanzania is supported for now
@@ -97,7 +97,7 @@ it('can instantiate Swahilies using create', function () {
 //         'isLive' => false, // ie. sandbox mode
 //     ]);
 
-//     expect($swahilies->payaments()->all())->dd();
+//     expect($swahilies->payments()->all())->dd();
 // });
 
 // it('can make payments', function () {
@@ -108,5 +108,5 @@ it('can instantiate Swahilies using create', function () {
 //         'isLive' => false, // ie. sandbox mode
 //     ]);
 
-//     expect($swahilies->payaments()->get('1ef3610b20de4913ad6f82b8e7e3c528'))->dd();
+//     expect($swahilies->payments()->get('1ef3610b20de4913ad6f82b8e7e3c528'))->dd();
 // });

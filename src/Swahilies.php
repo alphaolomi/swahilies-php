@@ -44,7 +44,7 @@ class Swahilies
         return new Swahilies($options, $_httpClient);
     }
 
-    public function payaments()
+    public function payments()
     {
         return new Services\Payments($this->httpClient, $this->options);
     }
