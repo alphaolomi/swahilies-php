@@ -15,12 +15,11 @@ composer require alphaolomi/swahilies-php
 ## Usage
 
 ```php
-use Alphaolomi\Swahilies;
+use Alphaolomi\Swahilies\Swahilies;
 
 $swahilies = Swahilies::create([
     'apiKey' => 'csdheruvhhjdhvjadmvjehrve',
     'username' => 'Company name',
-    'username' => 'Business name',
     'isLive' => false, // ie. sandbox mode
 ]);
 
