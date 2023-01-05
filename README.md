@@ -25,12 +25,12 @@ $swahilies = Swahilies::create([
 
 $response = $swahilies->payments()->request([
     // TZS by default
-    'amount' => 50_000,
+    'amount' => 50000,
     // 255 is country code for Tanzania, Only Tanzania is supported for now
-    'phone_number' => "255783262616",
-    'cancel_url' => "https://yoursite.com/cancel",
-    'webhook_url' => "https://yoursite.com/response",
-    'success_url' => "https://yoursite.com/success",
+    'phoneNumber' => "255783262616",
+    'cancelUrl' => "https://yoursite.com/cancel",
+    'webhookUrl' => "https://yoursite.com/response",
+    'successUrl' => "https://yoursite.com/success",
     'metadata' => [],
 ]);
 
