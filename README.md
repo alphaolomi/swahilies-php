@@ -56,6 +56,7 @@ $isValid = $swahilies->webhooks()
 ### Payments
 
 -   `all()` - Get all transactions
+-   `directPush($data)` - Make a direct push USSD from your app
 -   `create($data)` - Make transaction
 -   `request($data)` alias to `create`
 -   `find($id)` - Get transaction status
