@@ -36,11 +36,11 @@ class Payments
         return json_decode((string) $response->getBody(), true);
     }
 
-    public function create(array $data)
+    public function create(array $data, int $code = 101)
     {
         $payload = [
             'api' => 170,
-            'code' => 101,
+            'code' => $code,
             'data' => [
                 'api_key' => $this->options['apiKey'],
                 'order_id' => Helpers::generateRandomString(10),
@@ -64,6 +64,11 @@ class Payments
     public function request(array $data)
     {
         return $this->create($data);
+    }
+
+    public function directPush(array $data)
+    {
+        return $this->create($data, 104);
     }
 
     public function find(string $id)
