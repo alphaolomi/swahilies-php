@@ -43,7 +43,7 @@ class Payments
             'code' => $code,
             'data' => [
                 'api_key' => $this->options['apiKey'],
-                'order_id' => Helpers::generateRandomString(10),
+                'order_id' => array_key_exists('orderId', $data) ? $data['orderId'] : Helpers::generateRandomString(10),
                 'amount' => $data['amount'],
                 'phone_number' => $data['phoneNumber'],
                 'success_url' => $data['successUrl'],

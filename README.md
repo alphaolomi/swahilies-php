@@ -27,6 +27,7 @@ $response = $swahilies->payments()->request([
     // TZS by default
     'amount' => 50000,
     // 255 is country code for Tanzania, Only Tanzania is supported for now
+    'orderId' => $order->id,
     'phoneNumber' => "255783262616",
     'cancelUrl' => "https://yoursite.com/cancel",
     'webhookUrl' => "https://yoursite.com/response",
