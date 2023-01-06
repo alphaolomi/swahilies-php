@@ -80,7 +80,7 @@ class Payments
 
         $payload = [
             'api' => 170,
-            'code' => 103,
+            'code' => 105,
             'data' => $data,
         ];
         $response = $this->httpClient->post('', [
