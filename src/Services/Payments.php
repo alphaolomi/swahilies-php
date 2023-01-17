@@ -23,6 +23,13 @@ class Payments
         $this->options = $options;
     }
 
+    /**
+     * Get all payments
+     *
+     * @link https://swahilies.readme.io/reference/get-reconciliation-list-1
+     * @return array
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function all()
     {
         $response = $this->httpClient->post('', [
@@ -36,7 +43,14 @@ class Payments
         return json_decode((string) $response->getBody(), true);
     }
 
-    public function create(array $data, int $code = 101)
+    /**
+     * @param array $data
+     * @param int $code
+     * @return array
+     * @internal
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    private function create(array $data, int $code = 101)
     {
         $payload = [
             'api' => 170,
@@ -61,16 +75,45 @@ class Payments
         return json_decode((string) $response->getBody(), true);
     }
 
+    /**
+     * Make a payment request
+     *
+     * @link https://swahilies.readme.io/reference/create-check-out-order-1
+     * @param array $data
+     * @return array
+     */
     public function request(array $data)
     {
         return $this->create($data);
     }
 
+    /**
+     * @deprecated 0.1.0 Use directRequest() instead
+     */
     public function directPush(array $data)
     {
         return $this->create($data, 104);
     }
 
+    /**
+     * Make a direct payment request, no checkout page is shown
+     * @link https://swahilies.readme.io/reference/create-check-out-order-complete-1
+     * @param array $data
+     * @return array
+     */
+    public function directRequest(array $data)
+    {
+        return $this->create($data, 104);
+    }
+
+
+    /**
+     * Get a payment by ID (Using Client Order ID)
+     * @link https://swahilies.readme.io/reference/get-order-status-1
+     * @param string $id
+     * @return array
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function find(string $id)
     {
         $data = [
