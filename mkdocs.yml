@@ -6,6 +6,9 @@ repo_name: 'alphaolomi/swahilies-php'
 repo_url: 'https://github.com/alphaolomi/swahilies-php'
 nav:
     - Home: index.md
+    - Installation: installation.md
+    - Upgrading: upgrading.md
+    - Payments: payments/index.md
 theme:
   name: 'material'
   logo: 'logo.png'
