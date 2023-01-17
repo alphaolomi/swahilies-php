@@ -1,10 +1,13 @@
-site_name: Test docs
-site_description: 'A docs test'
-site_author: 'Michael Hausenblas'
+site_name: Swahilies for PHP
+site_description: 'Swahilies bindings for PHP'
+site_author: 'Alpha Olomi'
 docs_dir: docs/
-repo_name: 'alphaolomi/mkdocs-template'
-repo_url: 'https://github.com/alphaolomi/mkdocs-template'
+repo_name: 'alphaolomi/swahilies-php'
+repo_url: 'https://github.com/alphaolomi/swahilies-php'
 nav:
     - Home: index.md
 theme:
   name: 'material'
+  logo: 'logo.png'
+  palette:
+    primary: orange
