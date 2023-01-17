@@ -17,6 +17,8 @@ composer require alphaolomi/swahilies-php
 ```php
 use Alphaolomi\Swahilies\Swahilies;
 
+$swahilies = new Swahilies([]);
+// Or
 $swahilies = Swahilies::create([
     'apiKey' => 'csdheruvhhjdhvjadmvjehrve',
     'username' => 'Company name',
@@ -41,8 +43,9 @@ print_r($response);
 // [
 //     "payment_url" => "https://swahiliespay.invict.site/make-payment-1.html?order=jdhvjadmvjehrve"
 // ]
+```
 
-
+```php
 // Webhooks
 // You can use the following code to verify the webhook signature
 
@@ -56,11 +59,10 @@ $isValid = $swahilies->webhooks()
 
 ### Payments
 
--   `all()` - Get all transactions
--   `directPush($data)` - Make a direct push USSD from your app
--   `create($data)` - Make transaction
--   `request($data)` alias to `create`
--   `find($id)` - Get transaction status
+-   `all()` - Get all payment transactions
+-   `directRequest($data)` - Make a direct Push USSD from your app
+-   `request($data)` -  Make a payment request
+-   `find($id)` - Get payment transaction information
 
 ### Webhooks
 
@@ -71,7 +73,7 @@ $isValid = $swahilies->webhooks()
 
 ## Testing
 
-Using [PestPHP](https://pestphp.com/)
+Using [PestPHP](https://pestphp.com/) for testing.
 
 ```bash
 composer test
