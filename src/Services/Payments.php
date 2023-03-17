@@ -27,7 +27,9 @@ class Payments
      * Get all payments
      *
      * @link https://swahilies.readme.io/reference/get-reconciliation-list-1
+     *
      * @return array
+     *
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function all()
@@ -44,10 +46,10 @@ class Payments
     }
 
     /**
-     * @param array $data
-     * @param int $code
      * @return array
+     *
      * @internal
+     *
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function create(array $data, int $code = 101)
@@ -79,7 +81,7 @@ class Payments
      * Make a payment request
      *
      * @link https://swahilies.readme.io/reference/create-check-out-order-1
-     * @param array $data
+     *
      * @return array
      */
     public function request(array $data)
@@ -97,8 +99,9 @@ class Payments
 
     /**
      * Make a direct payment request, no checkout page is shown
+     *
      * @link https://swahilies.readme.io/reference/create-check-out-order-complete-1
-     * @param array $data
+     *
      * @return array
      */
     public function directRequest(array $data)
@@ -106,12 +109,13 @@ class Payments
         return $this->create($data, 104);
     }
 
-
     /**
      * Get a payment by ID (Using Client Order ID)
+     *
      * @link https://swahilies.readme.io/reference/get-order-status-1
-     * @param string $id
+     *
      * @return array
+     *
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function find(string $id)
