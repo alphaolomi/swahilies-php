@@ -50,7 +50,7 @@ class Payments
      * @internal
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    private function create(array $data, int $code = 101)
+    public function create(array $data, int $code = 101)
     {
         $payload = [
             'api' => 170,
